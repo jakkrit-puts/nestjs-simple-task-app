@@ -5,17 +5,20 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-@Entity({ name: 'tasks' })
-export class Task {
+@Entity({ name: 'users' })
+export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
-  title: string;
+  @Column({ unique: true })
+  username: string;
 
   @Column()
-  desc: string;
+  password: string;
 
   @CreateDateColumn()
   created: Date;
+
+  @CreateDateColumn()
+  updated: Date;
 }
